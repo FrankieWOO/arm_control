@@ -1,4 +1,4 @@
-function [ x, xdot, xddot, t ] = generate_trajectory_jerk_viapoint( x0, xf, tf, dt, x1, t1 )
+function [ t, x, xdot, xddot] = generate_trajectory_jerk_viapoint( x0, xf, tf, dt, x1, t1 )
 %GENERATE_TRAJECTORY_JERK_VIAPOINT Summary of this function goes here
 %   Detailed explanation goes here
     s1 = 0:dt:t1;

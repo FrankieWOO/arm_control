@@ -1,0 +1,9 @@
+LIBRARY mccp1TauA_mex.mexw64
+EXPORTS
+mexFunction
+mexfilerequiredapiversion
+emlrtMexFcnProperties
+mccp1TauA
+mccp1TauA_initialize
+mccp1TauA_terminate
+mccp1TauA_atexit

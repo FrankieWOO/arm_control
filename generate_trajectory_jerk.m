@@ -1,4 +1,4 @@
-function [ x, xdot, xddot, t ] = generate_trajectory_jerk( x0, xf, tf, dt )
+function [ t, x, xdot, xddot ] = generate_trajectory_jerk( x0, xf, tf, dt )
 %GENERATE_TRAJECTORY_JERK Summary of this function goes here
 %   Detailed explanation goes here
     t = 0:dt:tf;
@@ -9,9 +9,10 @@ function [ x, xdot, xddot, t ] = generate_trajectory_jerk( x0, xf, tf, dt )
 
     %xdot = (x(:,3:end) - x(:,1:end-2))/(2*dt) ;
     %xdot = [zeros(size(x0)),xdot,zeros(size(x0))];
-    xdot = gradient(x);
+    
+    xdot = gradient(x)./dt;
     %xddot = (x(:,3:end) + x(:,1:end-2) - 2*x(:,2:end-1) )/(dt^2);
     %xddot = [zeros(size(x0)),xddot,zeros(size(x0))];
-    xddot = gradient(xdot);
+    xddot = gradient(xdot)./dt;
 end
 

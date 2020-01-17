@@ -17,13 +17,13 @@ dt = 0.02;
 %p.solver = 'rk4';
 
 % define feed forward commands
-%U = sin(5*rand(6,1)*t);
+U = sin(5*rand(6,1)*t);
 
 % simulate
 tic
 X = arm.simulate_feedforward ( x0, U, dt );
 toc
-
+%%
 % plot joint angles, velocities, commands
 figure
 subplot(3,1,1),plot(X(1:2,:)'),ylabel('q (rad)')

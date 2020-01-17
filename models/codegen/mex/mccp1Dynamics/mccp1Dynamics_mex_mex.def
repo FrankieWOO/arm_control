@@ -1,0 +1,9 @@
+LIBRARY mccp1Dynamics_mex.mexw64
+EXPORTS
+mexFunction
+mexfilerequiredapiversion
+emlrtMexFcnProperties
+mccp1Dynamics
+mccp1Dynamics_initialize
+mccp1Dynamics_terminate
+mccp1Dynamics_atexit

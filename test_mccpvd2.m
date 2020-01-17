@@ -1,22 +1,25 @@
 robot = Mccpvd2Dof();
 
-x0 = zeros(12,1);
-u0 = [pi/3;pi/3;0.5;pi/3;pi/3;0.5];
+x0 = zeros(4,1);
+u0 = [pi/3;pi/6;0.5;pi/3;pi/6;0.5];
 %robot.step(x0,ones(6,1),0.02)
 u = repmat(u0,1,100);
 
 xsim = robot.simulate_feedforward(x0,u,0.02);
 
 %%
-global mccpvd2_fh mccpvd2_ph1 mccpvd2_ph2
+%global mccpvd2_fh mccpvd2_ph1 mccpvd2_ph2
 robot.plot(x0);
 
 %%
 robot.update(xsim(:,end));
+%%
+
+robot.plot([-pi/3; 2*pi/3])
 
 %%
 frames = robot.animate(xsim,0.02);
-
+robot.savegif(frames, 'mccpvd2animation')
 %%
 movie(frames,1,50)
 
@@ -31,3 +34,4 @@ for idx = 1:length(frames)
         imwrite(A,map,gifname,'gif','WriteMode','append','DelayTime',0.02);
     end
 end
+
